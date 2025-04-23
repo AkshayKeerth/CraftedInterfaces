@@ -8,16 +8,16 @@ interface MagneticElementProps {
   strength?: number;
 }
 
-export const MagneticElement = ({ 
+export const MagneticElement = React.forwardRef<HTMLDivElement, MagneticElementProps>(({ 
   children, 
   className = '', 
   strength = 0.3 
-}: MagneticElementProps) => {
-  const magnetic = useRef<HTMLDivElement>(null);
+}, ref) => {
+  const magneticRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   
   useEffect(() => {
-    const element = magnetic.current;
+    const element = ref ? (ref as React.RefObject<HTMLDivElement>).current : magneticRef.current;
     if (!element) return;
     
     let bounds: DOMRect;
@@ -61,11 +61,13 @@ export const MagneticElement = ({
       element.removeEventListener('mouseleave', handleMouseLeave);
       element.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isHovering, strength]);
+  }, [isHovering, strength, ref]);
   
   return (
-    <div ref={magnetic} className={`magnetic ${className}`} data-cursor-hover>
+    <div ref={ref || magneticRef} className={`magnetic ${className}`} data-cursor-hover>
       {children}
     </div>
   );
-};
+});
+
+MagneticElement.displayName = 'MagneticElement';

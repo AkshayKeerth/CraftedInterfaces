@@ -85,10 +85,6 @@ export const Projects = () => {
     return () => ctx.revert();
   }, []);
   
-  const setProjectRef = (el: HTMLDivElement | null, index: number) => {
-    projectRefs.current[index] = el;
-  };
-  
   return (
     <section 
       ref={sectionRef}
@@ -109,7 +105,7 @@ export const Projects = () => {
               key={project.id} 
               strength={0.03} 
               className="relative overflow-hidden rounded-2xl group"
-              ref={(el) => setProjectRef(el, index)}
+              ref={(el) => projectRefs.current[index] = el}
             >
               <div 
                 className="h-[450px] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

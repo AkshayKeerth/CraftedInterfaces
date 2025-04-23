@@ -1,52 +1,38 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 210 40% 98%;
-
-    --card: 240 10% 6%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 240 10% 6%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 252 87% 64%;
-    --primary-foreground: 240 10% 4%;
-
-    --secondary: 240 5% 10%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 240 5% 12%;
-    --muted-foreground: 240 5% 65%;
-
-    --accent: 265 89% 66%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 240 5% 15%;
-    --input: 240 5% 15%;
-    --ring: 252 87% 54%;
-
-    --radius: 0.5rem;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
   }
-}
 
-@layer base {
   * {
-    @apply border-border selection:bg-accent/30 selection:text-white;
+    @apply border-border selection:bg-white/10 selection:text-white;
   }
   
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 
@@ -56,12 +42,21 @@
 }
 
 @layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
   }
   
   .neo-blur {
-    @apply backdrop-blur-xl bg-black/40 border border-white/5 shadow-[0_4px_15px_rgba(0,0,0,0.1)];
+    @apply backdrop-blur-2xl bg-black/40 border border-white/10;
   }
   
   .text-gradient {
@@ -69,136 +64,135 @@
   }
   
   .text-glow {
-    @apply drop-shadow-[0_0_15px_rgba(255,255,255,0.5)];
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
   }
-
+  
+  .text-neon-blue {
+    color: #00FFFF;
+  }
+  
+  .text-neon-purple {
+    color: #8B5CF6;
+  }
+  
+  .text-neon-pink {
+    color: #FF00FF;
+  }
+  
   .neon-glow-blue {
-    @apply drop-shadow-[0_0_8px_rgba(0,255,255,0.7)];
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.7));
   }
-
+  
   .neon-glow-purple {
-    @apply drop-shadow-[0_0_8px_rgba(139,92,246,0.7)];
+    filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.7));
   }
-
+  
   .neon-glow-pink {
-    @apply drop-shadow-[0_0_8px_rgba(255,0,255,0.7)];
+    filter: drop-shadow(0 0 5px rgba(255, 0, 255, 0.7));
+  }
+  
+  /* Custom cursor styles */
+  .cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.15s ease-in-out;
   }
 
-  .neon-border {
-    @apply relative;
+  .cursor-outline {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease;
   }
 
-  .neon-border::after {
-    content: '';
-    @apply absolute inset-0 border border-neon-purple rounded-lg blur-[2px] opacity-50;
+  .cursor-hovering {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+  }
+
+  /* Three.js canvas styles */
+  .fullscreen-canvas {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
     z-index: -1;
   }
   
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  /* Noise overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
   }
-  
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+
+  /* Preloader styles */
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #08080c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
   }
 
-  .magnetic {
-    @apply transition-transform duration-200;
+  .loader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-}
 
-#root {
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-}
+  .loader-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #8B5CF6;
+    border-bottom-color: #FF00FF;
+    animation: spin 2s linear infinite;
+    position: absolute;
+  }
 
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.035;
-  pointer-events: none;
-  z-index: 100;
-}
+  .loader-circle:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    border-left-color: #00FFFF;
+    border-right-color: #FF00FF;
+    animation-duration: 3s;
+  }
 
-.fullscreen-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Custom cursor styles */
-.cursor-dot,
-.cursor-outline {
-  @apply fixed top-0 left-0 z-[999] pointer-events-none rounded-full transform -translate-x-1/2 -translate-y-1/2;
-  mix-blend-mode: difference;
-}
-
-.cursor-dot {
-  @apply w-1 h-1 bg-white;
-}
-
-.cursor-outline {
-  @apply w-8 h-8 border border-white;
-  transition: transform 0.2s ease-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
-}
-
-.cursor-hovering {
-  @apply w-12 h-12 bg-white/5 backdrop-blur-sm;
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Smooth font scaling */
-html {
-  font-size: clamp(14px, 0.5vw + 12px, 18px);
-}
-
-/* Custom scrollbar for Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.2);
-}
-
-/* Preloader */
-.preloader {
-  @apply fixed inset-0 z-[9999] bg-background flex items-center justify-center;
-}
-
-.loader {
-  @apply relative w-16 h-16;
-}
-
-.loader-circle {
-  @apply absolute top-0 left-0 w-full h-full border-4 border-transparent border-t-neon-purple rounded-full animate-spin;
-}
-
-.loader-circle:nth-child(2) {
-  animation-delay: -0.5s;
-  @apply border-t-neon-blue;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }

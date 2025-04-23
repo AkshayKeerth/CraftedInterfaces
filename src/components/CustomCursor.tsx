@@ -59,13 +59,17 @@ export const CustomCursor = () => {
     
     const links = document.querySelectorAll('a, button, [data-cursor-hover]');
     links.forEach(link => {
-      link.style.cursor = 'none';
+      if (link instanceof HTMLElement) {
+        link.style.cursor = 'none';
+      }
     });
     
     return () => {
       document.body.style.cursor = '';
       links.forEach(link => {
-        link.style.cursor = '';
+        if (link instanceof HTMLElement) {
+          link.style.cursor = '';
+        }
       });
     };
   }, []);

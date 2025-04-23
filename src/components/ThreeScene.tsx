@@ -3,18 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { 
   OrbitControls, 
-  useGLTF, 
   Environment, 
-  Sphere, 
-  MeshDistortMaterial,
   Float,
-  Text3D,
-  RenderTexture,
-  PerspectiveCamera,
+  MeshDistortMaterial,
   Preload,
 } from '@react-three/drei';
 import { gsap } from 'gsap';
-import { Group, Mesh, Vector3 } from 'three';
+import * as THREE from 'three';
 import { useWindowSize } from 'react-use';
 
 interface ThreeSceneProps {
@@ -22,7 +17,7 @@ interface ThreeSceneProps {
 }
 
 const FloatingSphere = ({ position = [0, 0, 0], size = 1, speed = 1, distort = 0.4, color = '#8B5CF6' }) => {
-  const mesh = useRef<Mesh>(null);
+  const mesh = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
 
   useFrame((state) => {
@@ -46,7 +41,7 @@ const FloatingSphere = ({ position = [0, 0, 0], size = 1, speed = 1, distort = 0
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
       <mesh 
         ref={mesh} 
-        position={position}
+        position={position as [number, number, number]}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
@@ -74,7 +69,7 @@ const Background = () => {
 };
 
 const Scene = () => {
-  const group = useRef<Group>(null);
+  const group = useRef<THREE.Group>(null);
   const { width } = useWindowSize();
   const isMobile = width < 768;
   
