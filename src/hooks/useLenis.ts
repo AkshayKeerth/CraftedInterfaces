@@ -12,7 +12,6 @@ export function useLenis() {
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      smoothTouch: false,
       touchMultiplier: 2,
     });
     
