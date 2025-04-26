@@ -75,10 +75,12 @@ export const Hero = () => {
           ref={headingRef}
           className="text-6xl md:text-8xl lg:text-9xl font-bold text-gradient mb-4 relative"
         >
-          <GlitchText text="FUTURE" className="text-glow" />
+          <span className="block">
+            <GlitchText text="CREATIVE" className="text-glow" />
+          </span>
           <span className="block mt-2">
-            <span className="text-neon-purple neon-glow-purple">TECH</span>{" "}
-            <GlitchText text="VISION" className="text-glow" />
+            <span className="text-neon-purple neon-glow-purple">PORTFOLIO</span>{" "}
+            <GlitchText text="2025" className="text-glow" />
           </span>
         </h1>
         
@@ -86,8 +88,7 @@ export const Hero = () => {
           ref={subheadingRef}
           className="text-xl md:text-2xl max-w-3xl mx-auto text-white/70 mt-6"
         >
-          Crafting revolutionary digital experiences with cutting-edge technology
-          and futuristic design.
+          Full-stack developer crafting immersive digital experiences with cutting-edge technology
         </p>
         
         <div ref={ctaRef} className="mt-12">
@@ -97,7 +98,7 @@ export const Hero = () => {
             font-medium tracking-wider"
             data-cursor-hover
           >
-            EXPLORE PORTFOLIO
+            EXPLORE MY WORK
           </button>
         </div>
       </div>
