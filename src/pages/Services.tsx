@@ -136,10 +136,10 @@ const Services = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <MagneticElement key={index} strength={0.1} className="h-full">
-                  <div className="service-card glass rounded-xl p-8 h-full flex flex-col transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg hover:shadow-neon-purple/20">
-                    <div className="text-4xl mb-6">{service.icon}</div>
-                    <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                    <p className="text-white/70 mb-6">{service.description}</p>
+                  <div className="service-card bg-[#101014] border border-white/10 rounded-xl p-8 h-full flex flex-col transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg hover:shadow-neon-purple/20 backdrop-blur-sm">
+                    <div className="text-4xl mb-6 bg-gradient-to-br from-neon-purple/20 to-neon-blue/10 p-4 rounded-lg inline-block">{service.icon}</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
+                    <p className="text-white/80 mb-6">{service.description}</p>
                     
                     <div className="mt-auto">
                       <h4 className="font-medium mb-3 text-neon-blue">What's included:</h4>
@@ -209,11 +209,11 @@ const Services = () => {
                 { num: "04", title: "Launch & Support", desc: "Going live and ensuring ongoing success" }
               ].map((step, index) => (
                 <MagneticElement key={index} strength={0.1}>
-                  <div className="glass p-6 rounded-xl text-center">
+                  <div className="bg-[#101014] border border-white/10 p-6 rounded-xl text-center backdrop-blur-sm">
                     <div className="inline-block w-12 h-12 rounded-full bg-neon-purple/20 border border-neon-purple text-neon-purple flex items-center justify-center text-lg font-bold mb-4">
                       {step.num}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                    <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
                     <p className="text-white/70">{step.desc}</p>
                   </div>
                 </MagneticElement>
@@ -237,9 +237,9 @@ const Services = () => {
                 { q: "Do you provide ongoing support?", a: "Yes, I offer maintenance packages to keep your website secure, updated, and performing optimally." },
                 { q: "Do you work with clients internationally?", a: "Absolutely! I've worked with clients from around the world and I'm comfortable with remote collaboration." }
               ].map((faq, index) => (
-                <div key={index} className="glass p-6 rounded-xl">
-                  <h3 className="text-xl font-bold mb-3">{faq.q}</h3>
-                  <p className="text-white/70">{faq.a}</p>
+                <div key={index} className="bg-[#101014] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
+                  <h3 className="text-xl font-bold mb-3 text-white">{faq.q}</h3>
+                  <p className="text-white/80">{faq.a}</p>
                 </div>
               ))}
             </div>
