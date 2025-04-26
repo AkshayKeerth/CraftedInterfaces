@@ -33,9 +33,13 @@ export const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold">
-            <span className="text-neon-purple neon-glow-purple">AKSHAY</span>
-            <span className="text-white">DEV</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/placeholder.svg" 
+              alt="Logo" 
+              className="h-10 w-10 mr-3 rounded-full"
+            />
+            <span className="text-white text-xl font-bold">AKSHAY DEV</span>
           </Link>
 
           {/* Desktop Menu */}
