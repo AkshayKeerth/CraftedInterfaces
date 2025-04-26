@@ -9,6 +9,7 @@ import { MagneticElement } from '@/components/MagneticElement';
 import { GlitchText } from '@/components/GlitchText';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/hooks/use-toast";
+import emailjs from 'emailjs-com';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,24 +78,41 @@ const Contact = () => {
     return () => ctx.revert();
   }, []);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message sent!",
-        description: "I'll get back to you as soon as possible.",
-      });
-      
-      // Reset form
-      if (formRef.current) {
+
+    const formData = new FormData(formRef.current);
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+    };
+
+    try {
+        await emailjs.send(
+            'service_0bb56lp',
+            'template_0zw9otc',
+            data,
+            'JWW66zQBHjOSHocnT'
+        );
+        toast({
+            title: "Message sent!",
+            description: "I'll get back to you as soon as possible.",
+            style: {
+                background: 'rgba(255, 255, 255, 0.8)', // Soft blurry background
+                backdropFilter: 'blur(10px)', // Apply blur effect
+                color: '#000', // Text color for better visibility
+            }
+        });
         formRef.current.reset();
-      }
-    }, 1500);
-  };
+    } catch (error) {
+        console.error('Failed to send email', error);
+    } finally {
+        setIsSubmitting(false);
+    }
+};
   
   return (
     <div className="min-h-screen w-full bg-background text-white">
@@ -167,9 +185,8 @@ const Contact = () => {
                     <input
                       type="text"
                       id="name"
-                      name="name"
-                      required
-                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 
+                      focus:outline-none focus:ring-2 focus:ring-neon-purple/50 focus:border-neon-purple/50 transition-colors rounded-[15px]"
                       placeholder="John Doe"
                     />
                   </div>
@@ -183,7 +200,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-neon-purple/50 focus:border-neon-purple/50 transition-colors rounded-[15px]"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -196,7 +213,7 @@ const Contact = () => {
                       type="text"
                       id="subject"
                       name="subject"
-                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-neon-purple/50 focus:border-neon-purple/50 transition-colors rounded-[15px]"
                       placeholder="Project Inquiry"
                     />
                   </div>
@@ -210,7 +227,7 @@ const Contact = () => {
                       name="message"
                       required
                       rows={5}
-                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-neon-purple/50 focus:border-neon-purple/50 transition-colors rounded-[15px]"
                       placeholder="Tell me about your project..."
                     ></textarea>
                   </div>
@@ -220,7 +237,7 @@ const Contact = () => {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-neon-purple/20 hover:bg-neon-purple/30 border border-neon-purple text-white font-bold text-base py-3 rounded-[15px] transition-all duration-300"
+                        className="w-full bg-neon-purple/20 hover:bg-neon-purple/30 border border-neon-purple text-white font-bold py-3 transition-all duration-300 transition-colors rounded-[15px]"
                       >
                         {isSubmitting ? 'Sending...' : 'Send Message'}
                       </Button>
@@ -234,7 +251,7 @@ const Contact = () => {
                   </p>
                   <MagneticElement strength={0.1}>
                     <a
-                      href="#"
+                      href="https://calendly.com/akshay-keerth-kadali"
                       className="text-neon-blue hover:text-neon-blue/80 transition-colors inline-flex items-center gap-1 mt-2"
                     >
                       Schedule a Call
@@ -257,7 +274,7 @@ const Contact = () => {
                 {[
                   {
                     q: "How quickly can we start working together?",
-                    a: "I typically can start new projects almost immediately after our initial conversation, depending on my current workload."
+                    a: "I typically can start new projects within 2 weeks of our initial conversation, depending on my current workload."
                   },
                   {
                     q: "What information do you need to provide a quote?",
@@ -275,7 +292,7 @@ const Contact = () => {
         </section>
       </main>
       
-      {/*<Footer /> */}
+      {/* <Footer /> */}
     </div>
   );
 };
