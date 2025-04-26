@@ -16,6 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   useEffect(() => {
+    // to scroll to top on route change
+    window.scrollTo(0, 0);
     ScrollTrigger.refresh();
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
@@ -42,7 +44,7 @@ const Index = () => {
           ctaText="Start a Project"
         />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

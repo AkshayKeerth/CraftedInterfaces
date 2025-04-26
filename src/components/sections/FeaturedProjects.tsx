@@ -14,25 +14,25 @@ export const FeaturedProjects = () => {
   
   const projects = [
     {
-      title: "Modern E-commerce Platform",
+      title: "Conturbo.AI - An AI Tech Influener Helper",
       category: "Web Development",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=500",
-      result: "+150% increase in conversion rate",
-      url: "/portfolio/ecommerce"
+      image: "https://i.ibb.co/hxvj8gmX/Screenshot-2025-04-13-220853.png",
+      result: "+150% increase in conversion rate performace in the website.",
+      url: "/portfolio/"
     },
     {
-      title: "Agency Landing Page",
+      title: "BloomFit.AI - An All-in-One AI Fitness and Health Web App",
       category: "UI/UX Design",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&h=500",
-      result: "Helped secure 4 new major clients",
-      url: "/portfolio/agency"
+      image: "https://i.ibb.co/KcJLpb7v/Screenshot-2025-04-16-213453.png",
+      result: "Helped secure hundreds of thousands new fitness enthusiasts.",
+      url: "/portfolio/"
     },
     {
-      title: "Financial App Dashboard",
+      title: "SnapReview.AI - An AI Platform for generating testimonials for clients",
       category: "Web App Design",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&h=500",
-      result: "Streamlined user experience by 35%",
-      url: "/portfolio/finance"
+      image: "https://i.ibb.co/hFCFybHN/Screenshot-2025-04-19-105433.png",
+      result: "Streamlined user experience by 35% and helped 15 major companies.",
+      url: "/portfolio/"
     }
   ];
   

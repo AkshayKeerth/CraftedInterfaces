@@ -9,7 +9,7 @@ export const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { href: "/", label: "Home" },
+    { href: "/?", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/portfolio", label: "Portfolio" },
@@ -33,13 +33,13 @@ export const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
+          <Link to="/#" className="flex items-center">
             <img 
-              src="/placeholder.svg" 
+              src="https://i.ibb.co/v68PhBxZ/CRAFTED-INTERFACES-LOGO.png" 
               alt="Logo" 
-              className="h-10 w-10 mr-3 rounded-full"
+              className="h-10 w-10 mr-3 rounded-full object-contain"
             />
-            <span className="text-white text-xl font-bold">AKSHAY DEV</span>
+            <span className="text-white text-xl font-bold">CRAFTED INTERFACES</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -50,7 +50,7 @@ export const Navbar = () => {
                   to={item.href}
                   className={`text-white/80 hover:text-white transition-colors ${
                     location.pathname === item.href ? 'text-white font-medium' : ''
-                  }`}
+                  } bg-neon-purple/20 hover:bg-neon-purple/30 py-2 px-4 rounded-full border border-neon-purple transition-all duration-300 neon-glow-purple`}
                 >
                   {item.label}
                 </Link>

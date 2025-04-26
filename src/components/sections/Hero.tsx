@@ -80,7 +80,8 @@ export const Hero = ({ headline, subheadline, ctaText }: HeroProps) => {
       <div className="max-w-7xl w-full mx-auto text-center z-10 pt-20">
         <h1 
           ref={headingRef}
-          className="text-5xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4 relative leading-tight"
+          // below is the modified line
+          className="main-title text-5xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4 relative leading-tight"
         >
           {headline.split('—').map((part, index) => (
             <span key={index} className="block mb-2">

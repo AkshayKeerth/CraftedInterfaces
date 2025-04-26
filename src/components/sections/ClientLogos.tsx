@@ -45,14 +45,20 @@ export const ClientLogos = () => {
     <section ref={sectionRef} className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 ref={titleRef} className="text-2xl font-medium text-center text-white/70 mb-12">
-          Trusted by
+          Clients have come looking for this kind of service from across some of the most popular companies in the world.
         </h2>
         
         <div ref={logosRef} className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-          {/* Replace with actual client logos */}
-          {[1, 2, 3, 4, 5].map((i) => (
+          {/* Actual client logos */}
+          {[
+            "https://www.freepnglogos.com/uploads/microsoft-logo-png-transparent-background-1.png",
+            "https://i.postimg.cc/DzHYdSjy/FACEBOOK-LOGOemovebg-preview.png",
+            "https://logo-base.com/logo/amazon-logo.png",
+            "https://purepng.com/public/uploads/large/purepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png",
+            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.u2QHRj345eWm2XuWsMCD5gHaBa%26pid%3DApi&f=1&ipt=025bf52e86c436852d11a2debe4e5def70c1744fc35e8b6e4658359902ddea1f&ipo=images"
+          ].map((src, i) => (
             <div key={i} className="w-24 h-12 bg-white/5 rounded-lg flex items-center justify-center backdrop-blur-sm">
-              <div className="text-white/40 font-semibold">LOGO {i}</div>
+              <img src={src} alt={`Client logo ${i + 1}`} className="max-h-10 max-w-[80px] object-contain" />
             </div>
           ))}
         </div>

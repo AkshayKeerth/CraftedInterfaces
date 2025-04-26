@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MagneticElement } from '../MagneticElement';
 import { GlitchText } from '../GlitchText';
 import { Code, Cpu, Globe, Layers } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,14 +124,17 @@ export const Services = () => {
               </p>
               
               <div className="mt-8 inline-block">
-                <a 
-                  href="#" 
-                  className={`${service.color} ${service.glowClass} group flex items-center`}
-                  data-cursor-hover
-                >
-                  <span>Learn more</span>
-                  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
+                <MagneticElement>
+                  <Link 
+                    to="/services" 
+                    className={`${service.color} ${service.glowClass} bg-neon-purple/20 hover:bg-neon-purple/30 text-white py-3 px-8 rounded-full 
+                    border border-neon-purple transition-all duration-300 hover:scale-105 neon-glow-purple 
+                    font-medium tracking-wider flex items-center justify-center`}
+                    data-cursor-hover
+                  >
+                    Learn More
+                  </Link>
+                </MagneticElement>
               </div>
             </MagneticElement>
           ))}
@@ -150,11 +154,15 @@ export const Services = () => {
             </div>
             
             <MagneticElement>
-              <button className="bg-neon-purple/20 hover:bg-neon-purple/30 text-white py-3 px-8 rounded-full 
-              border border-neon-purple transition-all duration-300 hover:scale-105 neon-glow-purple 
-              font-medium tracking-wider whitespace-nowrap">
+              <Link 
+                to="/contact" 
+                className="bg-neon-purple/20 hover:bg-neon-purple/30 text-white py-3 px-8 rounded-full 
+                border border-neon-purple transition-all duration-300 hover:scale-105 neon-glow-purple 
+                font-medium tracking-wider whitespace-nowrap flex items-center justify-center"
+                data-cursor-hover
+              >
                 CONTACT US
-              </button>
+              </Link>
             </MagneticElement>
           </div>
         </div>

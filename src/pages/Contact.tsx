@@ -21,9 +21,24 @@ const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
   
   const socialLinks = [
-    { name: "LinkedIn", url: "https://linkedin.com", icon: "in", color: "bg-[#0077B5]/20 border-[#0077B5]" },
-    { name: "Twitter", url: "https://twitter.com", icon: "tw", color: "bg-[#1DA1F2]/20 border-[#1DA1F2]" },
-    { name: "Instagram", url: "https://instagram.com", icon: "ig", color: "bg-[#E4405F]/20 border-[#E4405F]" }
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/kadali-akshay-800703300/",
+      iconUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SL2Gf-U_ixigPGDa-r4JQwHaHa%26pid%3DApi&f=1&ipt=f4c5d58dbaf98892e492659e5b7909cf74d78e2c23b7b3e84cceab5e4fe2fd42&ipo=images",
+      color: "bg-[#0077B5]/20 border-[#0077B5]"
+    },
+    {
+      name: "Twitter",
+      url: "https://x.com/AkshayKeerth",
+      iconUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._QMmlGy3ld9UFQTIXLGotwAAAA%26pid%3DApi&f=1&ipt=8ebf8972e7eee6aa878634662f724f92796e195bb0d19a2274426a54e08fe709&ipo=images",
+      color: "bg-[#1DA1F2]/20 border-[#1DA1F2]"
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/kadali.sravanthi.3",
+      iconUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.tkUWV6h-KefH5AGFoSqtMgHaHa%26pid%3DApi&f=1&ipt=74653d12f0de27ebc26c8819c85c36d0c81ed68dad8e522d882e082f40d7f2cc&ipo=images",
+      color: "bg-[#1877F3]/20 border-[#1877F3]"
+    }
   ];
   
   useEffect(() => {
@@ -105,13 +120,13 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2">Email</h3>
                     <a href="mailto:hello@yoursite.com" className="text-neon-purple hover:text-neon-purple/80 transition-colors">
-                      hello@akshaydev.com
+                      akshay.keerth.kadali@gmail.com
                     </a>
                   </div>
                   
                   <div>
                     <h3 className="text-xl font-bold mb-2">Location</h3>
-                    <p className="text-white/70">San Francisco, California</p>
+                    <p className="text-white/70">Karnataka, India</p>
                   </div>
                 </div>
                 
@@ -128,7 +143,11 @@ const Contact = () => {
                           rel="noreferrer"
                           aria-label={link.name}
                         >
-                          <span className="text-xl">{link.icon}</span>
+                          <img
+                            src={link.iconUrl}
+                            alt={link.name}
+                            className="w-6 h-6 object-contain"
+                          />
                         </a>
                       </MagneticElement>
                     ))}
@@ -150,7 +169,7 @@ const Contact = () => {
                       id="name"
                       name="name"
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
@@ -164,7 +183,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -177,7 +196,7 @@ const Contact = () => {
                       type="text"
                       id="subject"
                       name="subject"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors"
                       placeholder="Project Inquiry"
                     />
                   </div>
@@ -191,7 +210,7 @@ const Contact = () => {
                       name="message"
                       required
                       rows={5}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-[15px] px-4 py-3 text-white focus:outline-none focus:border-neon-purple/50 transition-colors resize-none"
                       placeholder="Tell me about your project..."
                     ></textarea>
                   </div>
@@ -201,7 +220,7 @@ const Contact = () => {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-neon-purple/20 hover:bg-neon-purple/30 border border-neon-purple text-white font-medium py-3 rounded-lg transition-all duration-300"
+                        className="w-full bg-neon-purple/20 hover:bg-neon-purple/30 border border-neon-purple text-white font-bold text-base py-3 rounded-[15px] transition-all duration-300"
                       >
                         {isSubmitting ? 'Sending...' : 'Send Message'}
                       </Button>
@@ -238,7 +257,7 @@ const Contact = () => {
                 {[
                   {
                     q: "How quickly can we start working together?",
-                    a: "I typically can start new projects within 2 weeks of our initial conversation, depending on my current workload."
+                    a: "I typically can start new projects almost immediately after our initial conversation, depending on my current workload."
                   },
                   {
                     q: "What information do you need to provide a quote?",
@@ -256,7 +275,7 @@ const Contact = () => {
         </section>
       </main>
       
-      <Footer />
+      {/*<Footer /> */}
     </div>
   );
 };

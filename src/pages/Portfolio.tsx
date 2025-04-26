@@ -27,55 +27,55 @@ const Portfolio = () => {
   
   const projects: Project[] = [
     {
-      id: "ecommerce",
-      title: "Modern E-commerce Platform",
+      id: "ai-aider",
+      title: "Conturbo.AI - An AI Tech Influener Helper",
       category: "Web Development",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=500",
-      description: "A complete e-commerce solution with custom product filtering and seamless checkout experience.",
-      url: "/portfolio/ecommerce",
+      image: "https://i.ibb.co/hxvj8gmX/Screenshot-2025-04-13-220853.png",
+      description: "+150% increase in conversion rate performace in the website.",
+      url: "https://conturbo.lovable.app",
       featured: true
     },
     {
-      id: "agency",
-      title: "Creative Agency Website",
+      id: "health and fitness",
+      title: "BloomFit.AI - An All-in-One AI Fitness and Health Web App",
       category: "UI/UX Design",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&h=500",
-      description: "Bold, interactive website showcasing the agency's work with engaging animations.",
-      url: "/portfolio/agency",
+      image: "https://i.ibb.co/KcJLpb7v/Screenshot-2025-04-16-213453.png",
+      description: "Helped secure hundreds of thousands new fitness enthusiasts.",
+      url: "https://bloom-life-tracker.lovable.app/",
       featured: true
     },
     {
-      id: "finance",
-      title: "Financial Dashboard",
+      id: "AI testimonials gen",
+      title: "SnapReview.AI - An AI Platform for generating testimonials for clients",
       category: "Web App",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&h=500",
-      description: "Data-rich dashboard with real-time updates and intuitive visualizations for financial data.",
-      url: "/portfolio/finance",
+      image: "https://i.ibb.co/hFCFybHN/Screenshot-2025-04-19-105433.png",
+      description: "Streamlined user experience by 35% and helped 15 major companies.",
+      url: "https://preview--snapreview-ai-mockup.lovable.app/",
       featured: true
     },
     {
       id: "restaurant",
-      title: "Restaurant Landing Page",
+      title: "Nancy's Restaurant Landing Page",
       category: "Web Design",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&h=500",
+      image: "https://i.ibb.co/CpJ6ph0r/Screenshot-2025-04-26-183735.png",
       description: "Appetizing design with online reservation system and menu showcase.",
-      url: "/portfolio/restaurant"
+      url: "https://preview--nancyshustle.lovable.app/"
     },
     {
       id: "fitness",
-      title: "Fitness Membership Platform",
+      title: "KineticLife.AI Fitness App",
       category: "Web Development",
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&h=500",
+      image: "https://i.ibb.co/1YcnqVrV/Screenshot-2025-04-26-184205.png",
       description: "Membership portal with class scheduling, progress tracking, and community features.",
-      url: "/portfolio/fitness"
+      url: "https://preview--kinetic-life-tracker.lovable.app/"
     },
     {
-      id: "travel",
-      title: "Travel Booking Experience",
+      id: "email organizer",
+      title: "FlowReply.AI - An AI-powered Email Organizer Assistant",
       category: "UI/UX Design",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=500",
-      description: "Streamlined booking flow with interactive maps and personalized recommendations.",
-      url: "/portfolio/travel"
+      image: "https://i.ibb.co/GfRb45Q1/Screenshot-2025-04-26-184702.png",
+      description: "Let AI organize, summarize, and reply to your emails. Reclaim 10+ hours every week with intelligent email automation.",
+      url: "https://preview--flowreply-zen-landing.lovable.app/"
     }
   ];
   
@@ -86,6 +86,9 @@ const Portfolio = () => {
   const categories = ["all", ...new Set(projects.map(project => project.category))];
   
   useEffect(() => {
+    // Scroll to top when the component is mounted
+    window.scrollTo(0, 0);
+
     const ctx = gsap.context(() => {
       // Animate filters
       gsap.from(filtersRef.current?.children || [], {
@@ -127,7 +130,7 @@ const Portfolio = () => {
         }
       };
     });
-    
+
     return () => ctx.revert();
   }, [filter]);
   
@@ -293,7 +296,7 @@ const Portfolio = () => {
         </section>
       </main>
       
-      <Footer />
+       {/* <Footer /> */}
     </div>
   );
 };

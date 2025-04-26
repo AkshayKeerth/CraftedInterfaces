@@ -14,18 +14,18 @@ export const GlitchText = ({ text, className = '', glitchIntensity = 0.5 }: Glit
   useEffect(() => {
     const glitchRandomly = () => {
       // Random chance to glitch
-      if (Math.random() < glitchIntensity * 0.1) {
+      if (Math.random() < glitchIntensity * 0.5) {
         setIsGlitching(true);
         
         // Stop glitching after a short time
         setTimeout(() => {
           setIsGlitching(false);
-        }, Math.random() * 200);
+        }, Math.random() * 9000);
       }
     };
     
     // Start random glitching
-    intervalRef.current = setInterval(glitchRandomly, 2000);
+    intervalRef.current = setInterval(glitchRandomly, 500);
     
     return () => {
       if (intervalRef.current) {
@@ -37,9 +37,15 @@ export const GlitchText = ({ text, className = '', glitchIntensity = 0.5 }: Glit
   return (
     <span 
       className={`inline-block ${isGlitching ? 'animate-glitch' : ''} ${className}`}
+      // style={{ 
+      //   textShadow: isGlitching ? 
+      //     `1px 1px 2px #00FFFF, -1px -2px 2px #FF00FF` : 
+      //     'none',
+      //   transition: 'text-shadow 0.1s ease'
+      // }}
       style={{ 
         textShadow: isGlitching ? 
-          `1px 1px 2px #00FFFF, -1px -2px 2px #FF00FF` : 
+          `1px 1px 2px #FFFFFF, -1px -2px 2px #FF00FF` : 
           'none',
         transition: 'text-shadow 0.1s ease'
       }}

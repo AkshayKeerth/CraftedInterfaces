@@ -125,7 +125,7 @@ const About = () => {
                     functional websites and applications that help businesses grow online.
                   </p>
                   <p>
-                    With over 5 years of experience working with startups, agencies, and established 
+                    With over 7+ years of experience working with startups, agencies, and established 
                     companies, I bring both technical expertise and creative vision to every project.
                   </p>
                   <p>
@@ -137,31 +137,31 @@ const About = () => {
                 <div className="mt-8 flex items-center space-x-6">
                   <MagneticElement>
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/kadali-akshay-800703300/" 
                       className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors"
                       aria-label="LinkedIn"
                     >
-                      <span className="text-xl">in</span>
+                      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SL2Gf-U_ixigPGDa-r4JQwHaHa%26pid%3DApi&f=1&ipt=f4c5d58dbaf98892e492659e5b7909cf74d78e2c23b7b3e84cceab5e4fe2fd42&ipo=images" alt="LinkedIn" className="w-6 h-6" />
                     </a>
                   </MagneticElement>
                   
                   <MagneticElement>
                     <a 
-                      href="#" 
+                      href="https://x.com/AkshayKeerth" 
                       className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors"
                       aria-label="Twitter"
                     >
-                      <span className="text-xl">tw</span>
+                      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._QMmlGy3ld9UFQTIXLGotwAAAA%26pid%3DApi&f=1&ipt=8ebf8972e7eee6aa878634662f724f92796e195bb0d19a2274426a54e08fe709&ipo=images" alt="Twitter" className="w-6 h-6" />
                     </a>
                   </MagneticElement>
                   
                   <MagneticElement>
                     <a 
-                      href="#" 
+                      href="https://github.com/AkshayKeerth/" 
                       className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors"
                       aria-label="GitHub"
                     >
-                      <span className="text-xl">gh</span>
+                      <img src="https://www.kindpng.com/picc/m/128-1280192_github-logo-png-github-png-transparent-png.png" alt="GitHub" className="w-6 h-6" />
                     </a>
                   </MagneticElement>
                 </div>
@@ -171,7 +171,7 @@ const About = () => {
                 {/* Replace with actual image */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center" 
-                  style={{ backgroundImage: "url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&h=1000)"}}
+                  style={{ backgroundImage: "url(https://i.postimg.cc/cC6yVbjm/headshotmaster-image-1744448281432.png)"}}
                 ></div>
               </div>
             </div>
@@ -260,7 +260,7 @@ const About = () => {
         />
       </main>
       
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { MagneticElement } from '@/components/MagneticElement';
 import { GlitchText } from '@/components/GlitchText';
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,8 +17,8 @@ const Services = () => {
   
   const services = [
     {
-      title: "Web Design",
-      icon: "🎨",
+      /* title: "Web Design", */
+      icon: "🎨 Web design",
       description: "Beautiful, responsive websites that engage visitors and drive conversions.",
       details: [
         "Custom website design",
@@ -28,8 +29,8 @@ const Services = () => {
       ]
     },
     {
-      title: "Landing Page Design",
-      icon: "🚀",
+      /* title: "Landing Page Design", */
+      icon: "🚀 Landing Page Design",
       description: "High-converting landing pages designed to turn visitors into customers.",
       details: [
         "Sales pages",
@@ -40,8 +41,8 @@ const Services = () => {
       ]
     },
     {
-      title: "Website Redesign",
-      icon: "✨",
+      /* title: "Website Redesign", */
+      icon: "✨ Website Redesign",
       description: "Transform your outdated website into a modern, high-performing digital asset.",
       details: [
         "UX assessment",
@@ -52,8 +53,8 @@ const Services = () => {
       ]
     },
     {
-      title: "Branding + UI Kits",
-      icon: "🎭",
+      /* title: "Branding + UI Kits", */
+      icon: "🎭 Branding + UI Kits",
       description: "Cohesive brand identity and UI components to ensure consistency across platforms.",
       details: [
         "Brand style guides",
@@ -64,8 +65,8 @@ const Services = () => {
       ]
     },
     {
-      title: "Web Development",
-      icon: "💻",
+      /* title: "Web Development",*/
+      icon: "💻 Web Development",
       description: "Clean, efficient code that brings designs to life with seamless functionality.",
       details: [
         "Front-end development",
@@ -139,11 +140,10 @@ const Services = () => {
                   className="bg-[#1A1F2C] border border-neon-purple/20 rounded-2xl p-8 h-full flex flex-col 
                   transition-all duration-300 hover:border-neon-purple/50 shadow-lg shadow-neon-purple/10"
                 >
-                  <div className="text-4xl mb-6 bg-neon-purple/10 p-4 rounded-lg inline-block text-neon-purple">
+                  <div className="text-4xl mb-6 bg-neon-purple/10 p-4 rounded-lg inline-block text-white" style={{ fontFamily: "'Nunito', 'Quicksand', 'Poppins', 'Arial Rounded MT Bold', 'Arial', sans-serif" }}>
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-                  <p className="text-white/80 mb-6 flex-grow">{service.description}</p>
+                  <p className="text-white mb-6 flex-grow">{service.description}</p>
                   
                   <div>
                     <h4 className="font-medium mb-3 text-neon-blue">What's included:</h4>
@@ -235,7 +235,7 @@ const Services = () => {
             
             <div className="space-y-8">
               {[
-                { q: "How long does a typical project take?", a: "Most websites take 4-8 weeks from start to finish, depending on complexity. Landing pages can be completed in 2-3 weeks." },
+                { q: "How long does a typical project take?", a: "Most websites take 3-4 weeks or less from start to finish, depending on complexity. Landing pages can be completed in 3-4 weeks or less." },
                 { q: "What are your payment terms?", a: "I typically require a 50% deposit to begin work, with the remaining 50% due upon project completion." },
                 { q: "Do you provide ongoing support?", a: "Yes, I offer maintenance packages to keep your website secure, updated, and performing optimally." },
                 { q: "Do you work with clients internationally?", a: "Absolutely! I've worked with clients from around the world and I'm comfortable with remote collaboration." }
@@ -250,7 +250,7 @@ const Services = () => {
         </section>
       </main>
       
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
