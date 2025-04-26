@@ -1,37 +1,55 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { MagneticElement } from './MagneticElement';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { href: "#", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" }
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/contact", label: "Contact" }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      scrolled ? 'py-4 backdrop-blur-xl bg-black/40 border-b border-white/10' : 'py-6 bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold">
-            <span className="text-neon-purple neon-glow-purple">JOHN</span>
-            <span className="text-white">DOE</span>
-          </a>
+          <Link to="/" className="text-2xl font-bold">
+            <span className="text-neon-purple neon-glow-purple">AKSHAY</span>
+            <span className="text-white">DEV</span>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <MagneticElement key={item.label} strength={0.2}>
-                <a
-                  href={item.href}
-                  className="text-white/80 hover:text-white transition-colors"
+                <Link
+                  to={item.href}
+                  className={`text-white/80 hover:text-white transition-colors ${
+                    location.pathname === item.href ? 'text-white font-medium' : ''
+                  }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               </MagneticElement>
             ))}
           </div>
@@ -40,6 +58,7 @@ export const Navbar = () => {
           <button
             className="md:hidden text-white p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span className={`w-full h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -53,14 +72,16 @@ export const Navbar = () => {
         <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
           <div className="pt-4 pb-3 space-y-3">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
-                className="block text-white/80 hover:text-white py-2 transition-colors"
+                to={item.href}
+                className={`block py-2 transition-colors ${
+                  location.pathname === item.href ? 'text-white font-medium' : 'text-white/80 hover:text-white'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

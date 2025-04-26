@@ -3,10 +3,17 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GlitchText } from '../GlitchText';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Hero = () => {
+interface HeroProps {
+  headline: string;
+  subheadline: string;
+  ctaText: string;
+}
+
+export const Hero = ({ headline, subheadline, ctaText }: HeroProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
@@ -73,33 +80,38 @@ export const Hero = () => {
       <div className="max-w-7xl w-full mx-auto text-center z-10 pt-20">
         <h1 
           ref={headingRef}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold text-gradient mb-4 relative"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4 relative leading-tight"
         >
-          <span className="block">
-            <GlitchText text="CREATIVE" className="text-glow" />
-          </span>
-          <span className="block mt-2">
-            <span className="text-neon-purple neon-glow-purple">PORTFOLIO</span>{" "}
-            <GlitchText text="2025" className="text-glow" />
-          </span>
+          {headline.split('—').map((part, index) => (
+            <span key={index} className="block mb-2">
+              {index === 0 ? (
+                <>
+                  {part} <span className="text-neon-purple neon-glow-purple">—</span>
+                </>
+              ) : (
+                <GlitchText text={part} className="text-glow" />
+              )}
+            </span>
+          ))}
         </h1>
         
         <p 
           ref={subheadingRef}
           className="text-xl md:text-2xl max-w-3xl mx-auto text-white/70 mt-6"
         >
-          Full-stack developer crafting immersive digital experiences with cutting-edge technology
+          {subheadline}
         </p>
         
         <div ref={ctaRef} className="mt-12">
-          <button 
+          <Link 
+            to="/contact"
             className="bg-neon-purple/20 hover:bg-neon-purple/30 text-white py-4 px-8 rounded-full 
             border border-neon-purple transition-all duration-300 hover:scale-105 neon-glow-purple 
             font-medium tracking-wider"
             data-cursor-hover
           >
-            EXPLORE MY WORK
-          </button>
+            {ctaText}
+          </Link>
         </div>
       </div>
       
