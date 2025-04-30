@@ -137,7 +137,7 @@ const About = () => {
                 <div className="mt-8 flex items-center space-x-6">
                   <MagneticElement>
                     <a 
-                      href="https://www.linkedin.com/in/kadali-akshay-800703300/" 
+                      href="https://www.linkedin.com/in/akshay-keerth-800703300/" 
                       className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors"
                       aria-label="LinkedIn"
                     >
