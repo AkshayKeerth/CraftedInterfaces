@@ -24,7 +24,7 @@ const Contact = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/kadali-akshay-800703300/",
+      url: "https://www.linkedin.com/in/akshay-keerth-800703300/",
       iconUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SL2Gf-U_ixigPGDa-r4JQwHaHa%26pid%3DApi&f=1&ipt=f4c5d58dbaf98892e492659e5b7909cf74d78e2c23b7b3e84cceab5e4fe2fd42&ipo=images",
       color: "bg-[#0077B5]/20 border-[#0077B5]"
     },
