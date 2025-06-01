@@ -171,7 +171,7 @@ const About = () => {
                 {/* Replace with actual image */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center"
-                  {/* Original Image: https://i.postimg.cc/cC6yVbjm/headshotmaster-image-1744448281432.png */}
+                  /* Original Image: https://i.postimg.cc/cC6yVbjm/headshotmaster-image-1744448281432.png */
                   style={{ backgroundImage: "url(https://i.postimg.cc/JnccpZtg/446eb15cc10940b084b6c5da79b73123-0-1748771860.png)"}}
                 ></div>
               </div>
